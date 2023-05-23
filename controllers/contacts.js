@@ -40,9 +40,11 @@ const deleteContact = async (req, res) => {
 };
 
 const update = async (req, res) => {
+  const { contactId } = req.params;
   const updatedContact = await Contact.findByIdAndUpdate(
-    req.params.contactId,
-    req.body
+    { _id: contactId },
+    req.body,
+    { new: true }
   );
   if (!updatedContact) {
     throw HttpError(404, "Not found");
@@ -50,10 +52,24 @@ const update = async (req, res) => {
   res.status(200).json({ status: "success", data: updatedContact });
 };
 
+const updateFavorite = async (req, res) => {
+  const { contactId } = req.params;
+  const updatedFavorite = await Contact.findByIdAndUpdate(
+    { _id: contactId },
+    req.body,
+    { new: true }
+  );
+  if (!updatedFavorite) {
+    throw HttpError(404, "Not found");
+  }
+  res.status(200).json({ status: "success", data: updatedFavorite });
+};
+
 module.exports = {
   getAll: controller(getAll),
   getById: controller(getById),
   add: controller(add),
   deleteContact: controller(deleteContact),
-  //   update: controller(update),
+  update: controller(update),
+  updateFavorite: controller(updateFavorite),
 };
