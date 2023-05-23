@@ -11,10 +11,10 @@ router.post("/", validateBody(schemas.contactSchema), controllers.add);
 
 router.delete("/:contactId", controllers.deleteContact);
 
-router.put(
-  "/:contactId",
-  validateBody(schemas.contactSchema),
-  controllers.update
-);
+// router.put(
+//   "/:contactId",
+//   validateBody(schemas.contactSchema),
+//   controllers.update
+// );
 
 module.exports = router;

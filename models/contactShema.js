@@ -1,5 +1,5 @@
-const { Shema, model } = require("mongoose");
-const shema = new Shema({
+const { Schema, model } = require("mongoose");
+const schema = new Schema({
   name: {
     type: String,
     required: [true, "Set name for contact"],
@@ -15,4 +15,5 @@ const shema = new Shema({
     default: false,
   },
 });
-const
+const Contact = model("contact", schema);
+module.exports = { Contact };
