@@ -15,5 +15,4 @@ const shema = new Shema({
     default: false,
   },
 });
-
 const
