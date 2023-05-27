@@ -17,9 +17,4 @@ mongoose
     process.exit(1);
   });
 
-const jwt = require("jsonwebtoken");
-const payload = { id: "123456", name: "Maksym", password: "998776@mail.com" };
-const secret = "Very strong password";
-const token = jwt.sign(payload, secret);
 
-module.exports = { token };

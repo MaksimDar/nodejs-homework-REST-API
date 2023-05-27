@@ -1,5 +1,4 @@
 const { Contact } = require("../models/contactSchema");
-
 const getAll = async (_, response) => {
   const result = await Contact.find();
 

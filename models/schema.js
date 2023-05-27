@@ -21,5 +21,5 @@ const schema = new Schema({
   token: String,
 });
 
-const ContactSchema = model("contact", schema);
-exports.module = { ContactSchema };
+const User = model("user", schema);
+module.exports = { User };
