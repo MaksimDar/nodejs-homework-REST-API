@@ -3,6 +3,7 @@ const router = express.Router();
 const controllers = require("../../controllers");
 const { validateBody } = require("../../schemas/validateBody");
 const { validateFavoriteBody } = require("../../schemas/validateFavoriteBody");
+const { upload } = require("../../middlewares");
 
 const schemas = require("../../schemas/contact");
 router.get("/", controllers.getAll);
@@ -24,5 +25,7 @@ router.patch(
   validateFavoriteBody(schemas.favoriteSchema),
   controllers.updateFavorite
 );
+
+router.patch("/:id/image", upload.single("image"));
 
 module.exports = router;
