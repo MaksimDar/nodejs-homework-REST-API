@@ -26,6 +26,6 @@ router.patch(
   controllers.updateFavorite
 );
 
-router.patch("/:id/image", upload.single("image"));
+router.patch("/:id/image", upload.single("image"), controllers.uploadImage);
 
 module.exports = router;
