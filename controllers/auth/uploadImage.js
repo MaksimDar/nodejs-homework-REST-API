@@ -1,4 +1,4 @@
-
+const path = require("path");
 const uploadImage = async (req, res) => {
   const { filename } = req.file;
 
