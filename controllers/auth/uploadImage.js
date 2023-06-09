@@ -1,5 +1,7 @@
+
 const uploadImage = async (req, res) => {
-  console.log("file", req.file);
+  const { filename } = req.file;
+
   res.json({ ok: true });
 };
 
