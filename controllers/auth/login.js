@@ -8,6 +8,11 @@ const login = async (req, res) => {
   if (!user) {
     res.status(401).json({ message: "Email or password is wrong" });
   }
+  if (!user.verify) {
+    res
+      .status(401)
+      .json({ message: "Email is not verified. Please, check your mailbox" });
+  }
   const isValidPassword = await bcrypt.compare(password, user.password);
   if (!isValidPassword) {
     res.status(401).json({ message: " Email or password is wrong" });

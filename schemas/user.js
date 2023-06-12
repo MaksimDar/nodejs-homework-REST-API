@@ -1,8 +1,12 @@
 const Joi = require("joi");
 
 const UserSchema = Joi.object({
-    email: Joi.string().required(),
-    password: Joi.string().required(),
+  email: Joi.string().required(),
+  password: Joi.string().required(),
 });
 
-module.exports = { UserSchema };
+const emailSchema = Joi.object({
+  email: Joi.string().required(),
+});
+
+module.exports = { UserSchema, emailSchema };
